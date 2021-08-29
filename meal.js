@@ -2,10 +2,12 @@ const searchFood = () => {
     const searchField = document.getElementById('search-field')
     const searcText = searchField.value
     console.log(searcText)
+
+    // Clear data
     searchField.value = ''
 
 
-    // // //  api // // //
+    // // //  api load data // // //
 
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searcText}`
     fetch(url) 
@@ -19,6 +21,9 @@ const searchFood = () => {
 
 const displaySearchResult = (meals) => {
     const searchresult = document.getElementById('search-result')
+
+    searchresult.textContent =''
+
 
     meals.forEach(meal => {
 
@@ -45,17 +50,20 @@ const displaySearchResult = (meals) => {
 
 // Meal Details
 
-const loadMealDetail = mealId => {
+const loadMealDetail = async mealId => {
 
     const url = `
     https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}
     
     `
-    // fetching data
+    // // // // fetching data // // // //
+    const res = await fetch(url)
+    const data = await res.json()
+    displayMealDetails(data.meals[0])
 
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displayMealDetails(data.meals[0]))
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(data => displayMealDetails(data.meals[0]))
 }
 
 // display meal details
@@ -63,6 +71,8 @@ const loadMealDetail = mealId => {
 const displayMealDetails = meal => {
     console.log(meal)
     const mealDetails = document.getElementById('meal-details')
+    // clearing previous search result
+    mealDetails.textContent = ''
     const div = document.createElement('div')
     div.classList.add('card')
     div.innerHTML = `
