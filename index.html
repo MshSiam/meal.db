@@ -22,8 +22,18 @@
         
         <input id="search-field" type="text" class="form-control text-center" placeholder="Search the food you WANT" aria-label="Recipient's username" aria-describedby="button-addon2">
 
-        <button onclick="searchFood()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
+        <button onclick="searchFood()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>    
 
+    </div>
+
+
+    <div id="spinner">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
 
     <!-- single meal details -->
@@ -37,12 +47,6 @@
     <div id="search-result" class="row row-cols-1 row-cols-md-3 row-cols-sm-4 g-4    my-4 mx-2">
         
     </div>
-
-
-
-
-
-
 
 
 

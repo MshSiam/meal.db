@@ -1,5 +1,10 @@
+const toggleSpinner = displayStyle => {document.getElementById('spinner').style.display = displayStyle
+}
+
 const searchFood = () => {
     const searchField = document.getElementById('search-field')
+    
+    toggleSpinner('block')
     const searcText = searchField.value
     console.log(searcText)
 
@@ -25,7 +30,7 @@ const displaySearchResult = (meals) => {
     searchresult.textContent =''
 
 
-    meals.forEach(meal => {
+    meals?.forEach(meal => {
 
         // console.log(meal)
         
@@ -46,6 +51,8 @@ const displaySearchResult = (meals) => {
         searchresult.appendChild(div)
 
     })
+toggleSpinner('none')
+
 }
 
 // Meal Details
@@ -64,6 +71,7 @@ const loadMealDetail = async mealId => {
     // fetch(url)
     // .then(res => res.json())
     // .then(data => displayMealDetails(data.meals[0]))
+
 }
 
 // display meal details
