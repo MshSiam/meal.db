@@ -1,3 +1,17 @@
+// enter button search //
+
+const search = document.getElementById('button-search')
+const field = document.getElementById('search-field')
+
+field.addEventListener('keypress', function(event){
+    // event.preventDefault()
+    if(event.keyCode == 13){
+        search.click()
+    }
+})
+
+
+
 const toggleSpinner = displayStyle => {document.getElementById('spinner').style.display = displayStyle
 }
 
